@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <fieldset>
+        <legend>CHUYỂN ĐỔI TIỀN TỆ</legend>
+        <h2>AMOUNT</h2>
+        <input type="text" id="amount1">
+        <h2>FROM CURRENCY</h2>
+        <select id="currency1">
+            <option value="VND">VietNam</option>
+            <option value="USD">USD</option>
+        </select>
+        <h2>TO CURRENCY</h2>
+        <select id="currency2">
+            <option value="VND">VietNam</option>
+            <option value="USD">USD</option>
+        </select><br> <br>
+        <!--<input type="button" id="chuyendoi" value="CONVERT" onclick="chuyendoi();">-->
+        <button type="button" value="" onclick="chuyendoi()" id="convert">Convert</button>
+    </fieldset>
+</form>
+<script>
+    function chuyendoi() {
+        let amount = parseFloat(document.getElementById("amount1").value);
+        let option1 = document.getElementById("currency1").value;
+        let option2 = document.getElementById("currency2").value;
+
+        let kq1;
+
+        if (option1 === option2) {
+            kq1 = amount;
+            //  document.write("ket qua  doi tien"+kq1);
+            // document.write("số tiền có là" + kq1 + "USD");
+        } else if (option1 === "VND" && option2 === "USD") {
+            kq1 = amount / 23000;
+            //document.write("số tiền chuyển đổi là" + kq2 + "VND");
+        } else if (option1 === "USD" && option2 === "VND")
+        {
+            kq1 = amount * 23000;
+        }
+        document.write("ket qua  doi tien" + kq1);
+    }
+</script>
+</body>
+</html>
